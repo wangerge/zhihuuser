@@ -17,6 +17,13 @@ NEWSPIDER_MODULE = 'zhihuuser.spiders'
 MONGO_URL = 'localhost'
 MONGO_DATABASE = 'zhihu'
 
+REDIS_URL = 'redis://:123456@192.168.0.102:6379'
+
+# 更改调度器
+SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+
+# 去重
+DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -71,6 +78,7 @@ DEFAULT_REQUEST_HEADERS = {
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    'zhihuuser.pipelines.MongoPipeline': 300,
+   'scrapy_redis.pipelines.RedisPipeline': 301,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
