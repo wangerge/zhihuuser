@@ -17,7 +17,7 @@ NEWSPIDER_MODULE = 'zhihuuser.spiders'
 MONGO_URL = 'localhost'
 MONGO_DATABASE = 'zhihu'
 
-REDIS_URL = 'redis://:123456@192.168.0.102:6379'
+REDIS_URL = 'redis://:@192.168.0.102:6379'
 
 # 更改调度器
 SCHEDULER = "scrapy_redis.scheduler.Scheduler"
